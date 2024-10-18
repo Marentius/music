@@ -4,6 +4,7 @@ import SongList from "./components/SongList";
 import SongPage from "./components/SongPage";
 import MusicPlayer from "./components/MusicPlayer"; // Importer MusicPlayer
 import NavBar from "./components/NavBar"; // Importer NavBar
+import ToolsList from "./components/ToolList"; // Importer ToolsList
 import { songs as songData, Song } from "./songs"; // Importer sangene og Song-typen fra songs.ts
 import { Box } from "@chakra-ui/react";
 
@@ -57,6 +58,8 @@ const App: React.FC = () => {
               </>
             }
           />
+          {/* Legg til en ny rute for ToolsList */}
+          <Route path="/tools" element={<ToolsList />} />
         </Routes>
       </Router>
     </Box>

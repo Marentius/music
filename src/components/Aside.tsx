@@ -1,14 +1,25 @@
 import React from "react";
-import { Box, Text, Image, BoxProps } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Image,
+  BoxProps,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom"; // Bruk Link fra react-router for å navigere mellom sider
 
 interface AsideProps extends BoxProps {
   artistInfo: string;
   artistImageSrc: string;
+  linkText?: string; // Gjør linkText valgfritt
+  linkUrl?: string; // Gjør linkUrl valgfritt
 }
 
 const Aside: React.FC<AsideProps> = ({
   artistInfo,
   artistImageSrc,
+  linkText,
+  linkUrl,
   ...props
 }) => {
   return (
@@ -32,11 +43,21 @@ const Aside: React.FC<AsideProps> = ({
         mb={4}
         mx="auto" // Sentrer bildet horisontalt
       />
-      <Text fontSize="lg" fontWeight="bold">
-        Marentius
-      </Text>{" "}
-      {/* La til navn her */}
       <Text mt={4}>{artistInfo}</Text>
+
+      {/* Hvis linkText og linkUrl er gitt, vis linken */}
+      {linkText && linkUrl && (
+        <ChakraLink
+          as={RouterLink} // Bruk Link fra react-router for intern navigasjon
+          to={linkUrl}
+          color="teal.300"
+          mt={4}
+          display="block"
+          _hover={{ textDecoration: "underline" }}
+        >
+          {linkText}
+        </ChakraLink>
+      )}
     </Box>
   );
 };

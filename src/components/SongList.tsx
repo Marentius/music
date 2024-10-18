@@ -120,6 +120,8 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
           <Aside
             artistInfo="Alt du ser på denne nettsiden er KI generert. Det inkluderer bilder, sanger, kode, og til og med denne teksten. Trykk på linken under for å se en samling over alle verktøy som er brukt i prosessen av å lage denne nettsiden."
             artistImageSrc="/assistant.png"
+            linkText="Se verktøyene som ble brukt"
+            linkUrl="/tools"
             my={{ base: 8, md: 0 }}
           />
         )}
