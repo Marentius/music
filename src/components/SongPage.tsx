@@ -11,7 +11,7 @@ interface Song {
   audioSrc: string;
   lyrics: string;
   imageSrc: string;
-  styleOfMusic: string; // Ny egenskap for musikksjangeren
+  styleOfMusic: string;
 }
 
 interface SongPageProps {
@@ -23,18 +23,23 @@ const SongPage: React.FC<SongPageProps> = ({ songs }) => {
   const song = songs[parseInt(songId || "0")];
 
   return song ? (
-    <Box p={6} bg="gray.900" color="white" minHeight="100vh">
-      <Flex justify="center" align="center">
-        {/* Bruker imageSrc fra song-data */}
+    <Box p={4} bg="gray.900" color="white" minHeight="100vh">
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justify="center"
+        align="center"
+      >
+        {/* Album Art */}
         <Image
           src={song.imageSrc}
           alt={song.title}
-          boxSize="300px"
+          boxSize={{ base: "200px", md: "300px" }} // Endrer størrelse for mobil
           objectFit="cover"
           rounded="lg"
-          mr={8}
+          mb={{ base: 4, md: 0 }} // Legger til margin på små skjermer
+          mr={{ md: 8 }} // Legger til margin høyre for mellomstore skjermer
         />
-        <Box>
+        <Box textAlign={{ base: "center", md: "left" }}>
           <Text fontSize="3xl" fontWeight="bold">
             {song.title}
           </Text>
@@ -50,7 +55,11 @@ const SongPage: React.FC<SongPageProps> = ({ songs }) => {
             Style of Music: {song.styleOfMusic}
           </Text>
 
-          <Flex mt={6} align="center">
+          <Flex
+            mt={6}
+            justify={{ base: "center", md: "flex-start" }}
+            align="center"
+          >
             <IconButton
               icon={<FaPlay />}
               aria-label="Play"

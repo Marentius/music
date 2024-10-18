@@ -7,7 +7,7 @@ interface Song {
   artist: string;
   album: string;
   id: number;
-  imageSrc: string; // Legger til imageSrc
+  imageSrc: string;
 }
 
 interface SongListProps {
@@ -16,9 +16,9 @@ interface SongListProps {
 
 const SongList: React.FC<SongListProps> = ({ songs }) => {
   return (
-    <Box p={8} bg="gray.900" color="white">
+    <Box p={4} bg="gray.900" color="white">
       {/* Header */}
-      <Flex justify="space-between" align="center" mb={8}>
+      <Flex justify="space-between" align="center" mb={4}>
         <Text fontSize="2xl" fontWeight="bold" color="white">
           Popular Songs
         </Text>
@@ -58,7 +58,14 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
       </Flex>
 
       {/* Song List */}
-      <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+      <Grid
+        templateColumns={{
+          base: "repeat(2, 1fr)",
+          md: "repeat(4, 1fr)",
+          lg: "repeat(5, 1fr)",
+        }}
+        gap={4}
+      >
         {songs.map((song) => (
           <Link to={`/song/${song.id}`} key={song.id}>
             <Box
@@ -71,15 +78,15 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
             >
               {/* Album Art */}
               <Image
-                src={song.imageSrc} // Bruker imageSrc her
+                src={song.imageSrc}
                 alt={song.title}
                 objectFit="cover"
                 w="100%"
-                h="200px"
+                h="150px"
                 roundedTop="lg"
               />
 
-              {/* Overlay for the play button (optional) */}
+              {/* Overlay for the play button */}
               <Box
                 position="absolute"
                 top="50%"
@@ -95,7 +102,7 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
               </Box>
 
               {/* Song Info */}
-              <Box p={4} textAlign="center">
+              <Box p={3} textAlign="center">
                 <Text fontSize="lg" fontWeight="bold" color="white">
                   {song.title}
                 </Text>

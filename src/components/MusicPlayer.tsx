@@ -16,12 +16,11 @@ interface MusicPlayerProps {
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
-  const [isPlaying, setIsPlaying] = useState(false); // For å spore om musikken spiller
-  const [currentTime, setCurrentTime] = useState(0); // Spore nåværende tid
-  const [duration, setDuration] = useState(0); // Spore musikkens varighet
-  const audioRef = useRef<HTMLAudioElement | null>(null); // Referanse til audio-elementet
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Play/Pause musikken
   const togglePlayPause = () => {
     if (!isPlaying) {
       audioRef.current?.play();
@@ -31,14 +30,12 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
     setIsPlaying(!isPlaying);
   };
 
-  // Oppdater slideren og tid når musikken spiller
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime);
     }
   };
 
-  // Håndtere endring på slideren for å hoppe til ny posisjon i musikken
   const handleSliderChange = (value: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime = value;
@@ -46,14 +43,12 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
     }
   };
 
-  // Når lyden er lastet inn, oppdater varighet
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
       setDuration(audioRef.current.duration);
     }
   };
 
-  // Formatere tid til mm:ss
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -63,7 +58,6 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
 
   return (
     <Box bg="gray.800" p={4} rounded="lg" shadow="lg" mt={8}>
-      {/* Audio elementet */}
       <audio
         ref={audioRef}
         src={audioSrc}
@@ -73,7 +67,6 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Slider for å hoppe i musikken */}
       <Box mt={4}>
         <Slider
           aria-label="slider-ex-1"
@@ -88,21 +81,19 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
           <SliderThumb />
         </Slider>
 
-        {/* Viser nåværende tid og total varighet */}
         <Flex justify="space-between" mt={2}>
           <Text color="white">{formatTime(currentTime)}</Text>
           <Text color="white">{formatTime(duration)}</Text>
         </Flex>
       </Box>
 
-      {/* Play/Pause knapper */}
       <Flex justify="center" mt={4}>
         <IconButton
           icon={isPlaying ? <FaPause /> : <FaPlay />}
           aria-label={isPlaying ? "Pause" : "Play"}
           colorScheme="teal"
           rounded="full"
-          onClick={togglePlayPause} // Play/Pause funksjon
+          onClick={togglePlayPause}
         />
       </Flex>
     </Box>
