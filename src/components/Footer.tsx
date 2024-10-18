@@ -12,8 +12,7 @@ const Footer: React.FC = () => {
       mt={8} // Margin top for å gi luft over innhold
       borderTop="1px solid rgba(0,0,0,0)" // En svak kantlinje på toppen
       width="100%" // Fyll hele bredden av skjermen
-      position="sticky" // Gjør footeren sticky
-      bottom={0} // Sticky nederst på siden
+      position="static" // Endrer til static posisjonering (standard)
     >
       <Text fontSize="s">&copy; 2024 Marentius</Text>
       <Text fontSize="s">
