@@ -8,7 +8,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Aside from "./aside";
+import Aside from "./Aside";
 
 interface Song {
   title: string;
