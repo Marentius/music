@@ -8,6 +8,7 @@ import {
   IconButton,
   Flex,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
@@ -52,49 +53,64 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
-    return `${minutes}:${formattedSeconds}`;
+    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
 
+  // Juster bredde basert på skjermstørrelse
+  const sliderWidth = useBreakpointValue({ base: "50%", md: "70%", lg: "80%" });
+
   return (
-    <Box bg="gray.800" p={4} rounded="lg" shadow="lg" mt={8}>
+    <Box
+      bg="gray.800"
+      p={4}
+      shadow="lg"
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      position="fixed"
+      bottom={0}
+      left={0}
+      right={0}
+      zIndex={1000}
+      maxHeight="80px"
+    >
+      {/* Audio element */}
       <audio
         ref={audioRef}
         src={audioSrc}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
+      />
+
+      {/* Play/Pause buttons */}
+      <IconButton
+        icon={isPlaying ? <FaPause /> : <FaPlay />}
+        aria-label={isPlaying ? "Pause" : "Play"}
+        colorScheme="teal"
+        onClick={togglePlayPause}
+      />
+
+      {/* Time Slider */}
+      <Slider
+        aria-label="music-slider"
+        value={currentTime}
+        max={duration}
+        onChange={handleSliderChange}
+        width={sliderWidth}
+        mx={4}
       >
-        Your browser does not support the audio element.
-      </audio>
+        <SliderTrack>
+          <SliderFilledTrack />
+        </SliderTrack>
+        <SliderThumb />
+      </Slider>
 
-      <Box mt={4}>
-        <Slider
-          aria-label="slider-ex-1"
-          value={currentTime}
-          min={0}
-          max={duration}
-          onChange={handleSliderChange}
-        >
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-
-        <Flex justify="space-between" mt={2}>
-          <Text color="white">{formatTime(currentTime)}</Text>
-          <Text color="white">{formatTime(duration)}</Text>
-        </Flex>
-      </Box>
-
-      <Flex justify="center" mt={4}>
-        <IconButton
-          icon={isPlaying ? <FaPause /> : <FaPlay />}
-          aria-label={isPlaying ? "Pause" : "Play"}
-          colorScheme="teal"
-          rounded="full"
-          onClick={togglePlayPause}
-        />
+      {/* Time display */}
+      <Flex minWidth="100px" justify="space-between">
+        <Text color="white" mr={2}>
+          {formatTime(currentTime)}
+        </Text>
+        <Text color="white">/ {formatTime(duration)}</Text>
       </Flex>
     </Box>
   );

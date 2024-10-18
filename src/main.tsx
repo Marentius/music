@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"; // Import ChakraProvider
 import App from "./App";
-import "./styles.css";
 
 const theme = extendTheme({
   colors: {
