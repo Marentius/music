@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SongList from "./components/SongList";
 import SongPage from "./components/SongPage";
 import MusicPlayer from "./components/MusicPlayer"; // Importer MusicPlayer
+import NavBar from "./components/NavBar"; // Importer NavBar
 import { songs as songData, Song } from "./songs"; // Importer sangene og Song-typen fra songs.ts
+import { Box } from "@chakra-ui/react";
 
 const App: React.FC = () => {
   const [songs, setSongs] = useState<Song[]>(songData); // Sett initielt songs til imported songs data
@@ -22,31 +24,42 @@ const App: React.FC = () => {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <SongList
-              songs={songs.map((song, index) => ({ ...song, id: index }))} // Legger til en unik id basert på indeksen
-            />
-          }
-        />
-        <Route
-          path="/song/:id"
-          element={
-            <>
-              <SongPage
-                songs={songs}
-                onPlaySong={handlePlaySong} // Funksjon for å spille av sang
+    <Box
+      bgImage="/background.png"
+      bgSize="cover"
+      bgPosition="center"
+      bgRepeat="no-repeat"
+      minHeight="100vh"
+    >
+      <Router>
+        {/* Inkluder NavBar på alle sider */}
+        <NavBar />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <SongList
+                songs={songs.map((song, index) => ({ ...song, id: index }))} // Legger til en unik id basert på indeksen
               />
-              {currentSong && <MusicPlayer audioSrc={currentSong.audioSrc} />}{" "}
-              {/* Musikkspilleren */}
-            </>
-          }
-        />
-      </Routes>
-    </Router>
+            }
+          />
+          <Route
+            path="/song/:id"
+            element={
+              <>
+                <SongPage
+                  songs={songs}
+                  onPlaySong={handlePlaySong} // Funksjon for å spille av sang
+                />
+                {currentSong && <MusicPlayer audioSrc={currentSong.audioSrc} />}{" "}
+                {/* Musikkspilleren */}
+              </>
+            }
+          />
+        </Routes>
+      </Router>
+    </Box>
   );
 };
 

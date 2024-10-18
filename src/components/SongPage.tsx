@@ -25,52 +25,83 @@ const SongPage: React.FC<SongPageProps> = ({ songs, onPlaySong }) => {
 
   return song ? (
     <>
-      <Box p={6} bg="gray.900" color="white" minHeight="100vh">
-        <Flex justify="center" align="center">
-          {/* Album Art */}
-          <Image
-            src={song.imageSrc}
-            alt={song.title}
-            boxSize="300px"
-            objectFit="cover"
-            rounded="lg"
-            mr={8}
-          />
-          <Box>
-            <Text fontSize="3xl" fontWeight="bold">
-              {song.title}
-            </Text>
-            <Text fontSize="xl" color="gray.400">
-              {song.artist}
-            </Text>
-            <Text fontSize="md" color="gray.500">
-              Album: {song.album}
-            </Text>
-
-            {/* Viser musikksjangeren */}
-            <Text fontSize="lg" color="teal.300" mt={2}>
-              Style of Music: {song.styleOfMusic}
-            </Text>
-
-            {/* Play-knapp */}
-            <Flex mt={6} align="center">
-              <IconButton
-                icon={<FaPlay />}
-                aria-label="Play"
-                colorScheme="green"
-                mr={2}
-                onClick={() => onPlaySong(song)}
+      <Box
+        p={6}
+        bg="rgba(0, 0, 0, 0.3)"
+        color="white"
+        minHeight="100vh"
+        pb="120px"
+      >
+        <Flex justify="center" align="center" mb={8}>
+          {/* Denne boksen har nå samme bredde som Lyrics-seksjonen */}
+          <Box
+            bg="rgba(0, 0, 0, 0.9)"
+            p={6}
+            borderRadius="lg"
+            border="1px solid rgba(0, 0, 0, 0.9)"
+            shadow="lg"
+            width={{ base: "100%", md: "60%" }} // Match bredde til Lyrics-seksjonen
+          >
+            <Flex
+              direction={{ base: "column", md: "row" }} // Responsiv retning basert på skjermstørrelse
+              justify="center"
+              align="center"
+            >
+              {/* Album Art */}
+              <Image
+                src={song.imageSrc}
+                alt={song.title}
+                boxSize={{ base: "200px", md: "300px" }} // Responsiv størrelse på bildet
+                objectFit="cover"
+                rounded="lg"
+                mr={{ base: 8, md: 8 }} // Margin til høyre, økt på større skjermer
+                mb={{ base: 4, md: 0 }} // Legg til margin på bunn på mobil
               />
-              <Text fontSize="sm">Now playing</Text>
+              <Box textAlign={{ base: "center", md: "left" }}>
+                <Text fontSize="3xl" fontWeight="bold">
+                  {song.title}
+                </Text>
+                <Text fontSize="xl" color="gray.400">
+                  {song.artist}
+                </Text>
+                <Text fontSize="md" color="gray.500">
+                  Album: {song.album}
+                </Text>
+
+                {/* Viser musikksjangeren */}
+                <Text fontSize="lg" color="teal.300" mt={2}>
+                  Style of Music: {song.styleOfMusic}
+                </Text>
+
+                {/* Play-knapp */}
+                <Flex
+                  mt={6}
+                  align="center"
+                  justify={{ base: "center", md: "flex-start" }}
+                >
+                  <IconButton
+                    icon={<FaPlay />}
+                    aria-label="Play"
+                    colorScheme="green"
+                    mr={2}
+                    onClick={() => onPlaySong(song)}
+                  />
+                  <Text fontSize="sm">Now playing</Text>
+                </Flex>
+              </Box>
             </Flex>
           </Box>
         </Flex>
 
-        {/* Musikkspiller og lyrics */}
-        <Box mt={8}>
-          <MusicPlayer audioSrc={song.audioSrc} />
-          <Lyrics lyrics={song.lyrics} />
+        {/* Lyrics skal sentreres */}
+        <Box mt={8} display="flex" justifyContent="center">
+          <Box width={{ base: "100%", md: "60%" }}>
+            <Lyrics lyrics={song.lyrics} />
+          </Box>
         </Box>
+
+        {/* Musikkspiller i bunnen */}
+        <MusicPlayer audioSrc={song.audioSrc} />
       </Box>
     </>
   ) : (

@@ -1,25 +1,41 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Image, BoxProps } from "@chakra-ui/react";
 
-interface AsideProps {
+interface AsideProps extends BoxProps {
   artistInfo: string;
+  artistImageSrc: string;
 }
 
-const Aside: React.FC<AsideProps> = ({ artistInfo }) => {
+const Aside: React.FC<AsideProps> = ({
+  artistInfo,
+  artistImageSrc,
+  ...props
+}) => {
   return (
     <Box
-      bg="gray.800"
+      bg="rgba(0, 0, 0, 0.9)"
       color="white"
       p={6}
       rounded="lg"
       shadow="lg"
       textAlign="center"
-      w={{ base: "100%", md: "250px" }} // Full bredde på mobil, 250px på desktop
-      mb={{ base: 4, md: 0 }} // Margin bottom på mobil
+      w={{ base: "100%", md: "250px" }}
+      my={{ base: 4, md: 0 }} // Margin på toppen og bunnen for mobil
+      {...props}
     >
+      <Image
+        src={artistImageSrc}
+        alt="Artist"
+        borderRadius="full"
+        boxSize="150px"
+        objectFit="cover" // Sørger for at bildet beholder sine proporsjoner
+        mb={4}
+        mx="auto" // Sentrer bildet horisontalt
+      />
       <Text fontSize="lg" fontWeight="bold">
         Marentius
-      </Text>
+      </Text>{" "}
+      {/* La til navn her */}
       <Text mt={4}>{artistInfo}</Text>
     </Box>
   );

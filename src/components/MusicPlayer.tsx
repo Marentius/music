@@ -61,7 +61,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
 
   return (
     <Box
-      bg="gray.800"
+      bg="rgba(0, 0, 0, 0.9)"
       p={4}
       shadow="lg"
       display="flex"

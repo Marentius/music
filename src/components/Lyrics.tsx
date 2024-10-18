@@ -7,7 +7,7 @@ interface LyricsProps {
 
 const Lyrics: React.FC<LyricsProps> = ({ lyrics }) => {
   return (
-    <Box bg="gray.800" p={4} rounded="lg" shadow="lg" mt={4}>
+    <Box bg="rgba(0, 0, 0, 0.9)" p={4} rounded="lg" shadow="lg" mt={4}>
       <Text whiteSpace="pre-wrap" color="gray.400">
         {lyrics}
       </Text>
