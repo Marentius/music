@@ -82,6 +82,8 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
                     objectFit="cover"
                     boxSize={{ base: "150px", md: "100px" }} // Større bilder på mobil
                     rounded="lg"
+                    mr={{ md: 4 }} // Legger til margin-right på desktop
+                    mb={{ base: 4, md: 0 }} // Legger til margin-bottom på mobil
                   />
 
                   {/* Song Info */}

@@ -40,7 +40,7 @@ const SongPage: React.FC<SongPageProps> = ({ songs, onPlaySong }) => {
             borderRadius="lg"
             border="1px solid rgba(0, 0, 0, 0.9)"
             shadow="lg"
-            width={{ base: "100%", md: "60%" }} // Match bredde til Lyrics-seksjonen
+            width={{ base: "100%", md: "36.5%" }} // Match bredde til Lyrics-seksjonen
           >
             <Flex
               direction={{ base: "column", md: "row" }} // Responsiv retning basert på skjermstørrelse
