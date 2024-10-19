@@ -5,8 +5,10 @@ import SongPage from "./components/SongPage";
 import MusicPlayer from "./components/MusicPlayer"; // Importer MusicPlayer
 import NavBar from "./components/NavBar"; // Importer NavBar
 import ToolsList from "./components/ToolList"; // Importer ToolsList
+import ToolDetails from "./components/ToolDetails"; // Importer ToolDetails
 import { songs as songData, Song } from "./songs"; // Importer sangene og Song-typen fra songs.ts
 import { Box } from "@chakra-ui/react";
+import { tools } from "./tools"; // Importer verktøyene
 
 const App: React.FC = () => {
   const [songs, setSongs] = useState<Song[]>(songData); // Sett initielt songs til imported songs data
@@ -60,6 +62,9 @@ const App: React.FC = () => {
           />
           {/* Legg til en ny rute for ToolsList */}
           <Route path="/tools" element={<ToolsList />} />
+
+          {/* Legg til en ny rute for ToolDetails */}
+          <Route path="/tools/:id" element={<ToolDetails tools={tools} />} />
         </Routes>
       </Router>
     </Box>

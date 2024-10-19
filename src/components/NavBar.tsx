@@ -31,6 +31,15 @@ const NavBar: React.FC = () => {
         <Button colorScheme="teal" variant="outline" size="md" as={Link} to="/">
           Hjem
         </Button>
+        <Button
+          colorScheme="teal"
+          variant="outline"
+          size="md"
+          as={Link}
+          to="/tools"
+        >
+          Verktøy
+        </Button>
       </Flex>
     </Box>
   );
