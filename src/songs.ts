@@ -81,7 +81,7 @@ fingrene fulle av ostepop.
 «Det setter seg fast,
 og det går ikke bort,  
 Men det er så godt, fingrene fulle av ostepop.»`,
-      imageSrc: "/fingrene_fulle_av_ostepop.jpg", // Relativ bane til bilde
+      imageSrc: "/Fingrene_fulle_av_ostepop.png", // Relativ bane til bilde
       styleOfMusic:"Pop, Synthwave, The Weekend-stil"
     },
     {
@@ -126,7 +126,7 @@ Emma Emma lights the way
 Turns the night into the day
 Smiles so bright they all sway
 Celebrate this party stay`,
-      imageSrc: "/star_of_the_party.jpg", // Relativ bane til bilde
+      imageSrc: "/star_of_the_party.png", // Relativ bane til bilde
       styleOfMusic:"Pop, Rap"
     },
     {
@@ -171,7 +171,7 @@ Tveter!!
 [Kraftig EDM dropp med en intens beat]
 
 [Outro]`,
-        imageSrc: "/opprykk.jpg", // Relativ bane til bilde
+        imageSrc: "/opprykk.png", // Relativ bane til bilde
         styleOfMusic:"Party, EDM, Pop"
       },
       {
