@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Image,
-  Text,
-  Flex,
-  Button,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Image, Text, Flex, useBreakpointValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Aside from "./Aside";
 import Footer from "./Footer"; // Importer Footer
@@ -99,16 +92,6 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
                       {song.artist}
                     </Text>
                   </Box>
-
-                  {/* Play Button */}
-                  <Button
-                    colorScheme="teal"
-                    size="lg"
-                    rounded="full"
-                    mt={{ base: 4, md: 0 }}
-                  >
-                    ▶
-                  </Button>
                 </Box>
               </Link>
             ))}

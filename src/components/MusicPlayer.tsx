@@ -20,6 +20,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1); // Legg til volum state
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const togglePlayPause = () => {
@@ -54,6 +55,14 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  };
+
+  const handleVolumeChange = (value: number) => {
+    const newVolume = value / 100; // Konverterer fra prosent til desimal
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume; // Juster volumet på audio elementet
+      setVolume(newVolume); // Oppdater volum state
+    }
   };
 
   // Juster bredde basert på skjermstørrelse
@@ -97,6 +106,20 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ audioSrc }) => {
         max={duration}
         onChange={handleSliderChange}
         width={sliderWidth}
+        mx={4}
+      >
+        <SliderTrack>
+          <SliderFilledTrack />
+        </SliderTrack>
+        <SliderThumb />
+      </Slider>
+
+      {/* Volume Slider */}
+      <Slider
+        aria-label="volume-slider"
+        value={volume * 100} // Konverter volum til prosent
+        onChange={handleVolumeChange}
+        width="100px"
         mx={4}
       >
         <SliderTrack>

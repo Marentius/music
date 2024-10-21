@@ -1,7 +1,5 @@
-// ToolDetails.tsx
-
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Text,
@@ -16,6 +14,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   Button,
+  Link,
 } from "@chakra-ui/react";
 import { Tool } from "../tools";
 
@@ -73,9 +72,6 @@ const ToolDetails: React.FC<ToolDetailsProps> = ({ tools }) => {
       {/* Bilder hvis det finnes */}
       {tool.images && (
         <Box mt={6}>
-          <Text fontSize="2xl" fontWeight="bold" mb={4}>
-            Genererte bilder:
-          </Text>
           <SimpleGrid columns={1} spacing={6}>
             {tool.images.map((image, index) => (
               <Flex
@@ -117,6 +113,16 @@ const ToolDetails: React.FC<ToolDetailsProps> = ({ tools }) => {
                         {image.style}
                       </Text>
                     </>
+                  )}
+                  {/* Link for bilder, hvis det finnes */}
+                  {image.link && (
+                    <Box mt={4}>
+                      <Link href={image.link} isExternal>
+                        <Button colorScheme="blue" size="sm">
+                          Se hele ChatGPT-samtalen
+                        </Button>
+                      </Link>
+                    </Box>
                   )}
                 </Box>
               </Flex>
@@ -200,11 +206,11 @@ const ToolDetails: React.FC<ToolDetailsProps> = ({ tools }) => {
                     </>
                   )}
 
-                  <Link to={song.songUrl}>
+                  <RouterLink to={song.songUrl}>
                     <Button colorScheme="teal" size="sm">
                       Spill av sang
                     </Button>
-                  </Link>
+                  </RouterLink>
                 </Box>
               </Flex>
             ))}

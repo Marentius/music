@@ -15,10 +15,6 @@ const Footer: React.FC = () => {
       position="static" // Endrer til static posisjonering (standard)
     >
       <Text fontSize="s">&copy; 2024 Marentius</Text>
-      <Text fontSize="s">
-        Laget med kjærlighet av Marentius. Rettelse: mest KI - litt
-        Marentius..🙈
-      </Text>
     </Box>
   );
 };

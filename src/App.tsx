@@ -6,6 +6,7 @@ import MusicPlayer from "./components/MusicPlayer"; // Importer MusicPlayer
 import NavBar from "./components/NavBar"; // Importer NavBar
 import ToolsList from "./components/ToolList"; // Importer ToolsList
 import ToolDetails from "./components/ToolDetails"; // Importer ToolDetails
+import ScrollToTop from "./components/ScrollTop"; // Importer ScrollToTop
 import { songs as songData, Song } from "./songs"; // Importer sangene og Song-typen fra songs.ts
 import { Box } from "@chakra-ui/react";
 import { tools } from "./tools"; // Importer verktøyene
@@ -35,6 +36,9 @@ const App: React.FC = () => {
       minHeight="100vh"
     >
       <Router>
+        {/* Inkluder ScrollToTop for å scrolle til toppen ved rutenavigasjon */}
+        <ScrollToTop />
+
         {/* Inkluder NavBar på alle sider */}
         <NavBar />
 

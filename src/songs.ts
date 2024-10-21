@@ -89,7 +89,7 @@ Men det er så godt, fingrene fulle av ostepop.»`,
       artist: "Marentius",
       album: "Star of the party",
       audioSrc: "/Star_of_the_party.wav", // Relativ bane fra public-mappen
-      lyrics: `Prompt:
+      lyrics: `Autogenerert prompt av Suno AI:
 
 [Verse]
 Emma in the spot now
@@ -130,9 +130,9 @@ Celebrate this party stay`,
       styleOfMusic:"Pop, Rap"
     },
     {
-        title: "Et fotballag, en kompisgjeng, vi rykka opp sammen",
+        title: "Back to back",
         artist: "Marentius",
-        album: "Et fotballag, en kompisgjeng, vi rykka opp sammen",
+        album: "Back to back",
         audioSrc: "/Et_fotballag_en_kompisgjeng_vi_rykket_opp_sammen.wav", // Relativ bane fra public-mappen
         lyrics: `Prompt: 
 

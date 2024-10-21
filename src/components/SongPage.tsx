@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Text, Image, Flex, IconButton } from "@chakra-ui/react";
-import { FaPlay } from "react-icons/fa";
+import { Box, Text, Image, Flex } from "@chakra-ui/react";
 import MusicPlayer from "./MusicPlayer";
 import Lyrics from "./Lyrics";
 
@@ -16,10 +15,10 @@ interface Song {
 
 interface SongPageProps {
   songs: Song[];
-  onPlaySong: (song: Song) => void; // Funksjon for å spille av en sang
+  onPlaySong: (song: Song) => void;
 }
 
-const SongPage: React.FC<SongPageProps> = ({ songs, onPlaySong }) => {
+const SongPage: React.FC<SongPageProps> = ({ songs }) => {
   const songId = window.location.pathname.split("/").pop();
   const song = songs[parseInt(songId || "0")];
 
@@ -72,22 +71,6 @@ const SongPage: React.FC<SongPageProps> = ({ songs, onPlaySong }) => {
                 <Text fontSize="lg" color="teal.300" mt={2}>
                   Style of Music: {song.styleOfMusic}
                 </Text>
-
-                {/* Play-knapp */}
-                <Flex
-                  mt={6}
-                  align="center"
-                  justify={{ base: "center", md: "flex-start" }}
-                >
-                  <IconButton
-                    icon={<FaPlay />}
-                    aria-label="Play"
-                    colorScheme="green"
-                    mr={2}
-                    onClick={() => onPlaySong(song)}
-                  />
-                  <Text fontSize="sm">Now playing</Text>
-                </Flex>
               </Box>
             </Flex>
           </Box>
