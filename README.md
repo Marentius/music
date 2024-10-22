@@ -12,19 +12,21 @@ Music er et spennende prosjekt som kombinerer kunstig intelligens med musikkprod
 - **Verktøyliste**: Utforsk ulike AI-verktøy som er brukt i prosjektet, inkludert detaljer om hver verktøy.
 - **Sangdetaljer**: Få informasjon om hver sang, inkludert tekst, stil og album.
 
-## Teknologier Brukt
+## Teknologier og verktøy brukt
 
 - **React**: For å bygge brukergrensesnittet.
 - **TypeScript**: For å sikre type-sikkerhet i koden.
 - **Vite**: For rask utvikling og bygging av applikasjonen.
 - **Chakra UI**: For stil og layout av komponentene.
-- **React Router**: For navigering mellom forskjellige sider i applikasjonen.
 - **ChatGPT 4o**: Avansert AI språkmodell utviklet av OpenAI.
 - **Suno AI**: AI-plattform for å generere musikk og lydeffekter.
 - **DALL·E**: AI-modell utviklet av OpenAI for å generere bilder fra tekstbeskrivelser.
 - **Ideogram**: AI-verktøy for å generere kunst og bilder basert på tekstbeskrivelser (prompts).
 - **GitHub Copilot**: AI-verktøy for å generere kodeforslag og automatisere programmering.
 - **Cursor**: En kodeeditor som ligner på Visual Studio Code, men med innebygde AI-funksjoner.
+- **Visusal Studio Code**: En populær kodeeditor utviklet av Microsoft.
+- **Vercel**: En skyplattform for å distribuere statiske nettsteder og applikasjoner.
+- **Git**: Et distribuert versjonskontrollsystem for å spore endringer i kildekode under utvikling.
 
 ## Installasjon
 
@@ -50,7 +52,3 @@ For å kjøre prosjektet lokalt, følg disse trinnene:
    ```
 
 4. **Åpne nettleseren** og naviger til `http://localhost:5173` for å se applikasjonen i aksjon.
-
-## Nedlastingsinformasjon
-
-Prosjektet er tilgjengelig for nedlasting via GitHub. Du kan klone det direkte fra [Marentius GitHub Repository](https://github.com/ditt-brukernavn/marentius).

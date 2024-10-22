@@ -1,6 +1,6 @@
 // tools.ts
 import { FaReact, FaCode, FaGithub, FaRegImage } from "react-icons/fa"; // Importer ikoner fra react-icons
-import { SiOpenai, SiTypescript, SiChakraui, SiSuno, SiVisualstudiocode } from "react-icons/si"; // Importer spesifikke ikoner fra react-icons
+import { SiOpenai, SiTypescript, SiChakraui, SiSuno, SiVisualstudiocode, SiGit, SiVercel } from "react-icons/si"; // Importer spesifikke ikoner fra react-icons
 import React from "react";
 
 export interface ToolDetail {
@@ -175,6 +175,20 @@ export const tools: Tool[] = [
     name: "Visual Studio Code",
     description: "En populær kodeeditor utviklet av Microsoft.",
     icon: React.createElement(SiVisualstudiocode),
+    category: "Øvrige Verktøy",
+  },
+  {
+    id: 11,
+    name: "Vercel",
+    description: "En skyplattform for å distribuere statiske nettsteder og applikasjoner.",
+    icon: React.createElement(SiVercel),
+    category: "Øvrige Verktøy",
+  },
+  {
+    id: 12,
+    name: "Git",
+    description: "Et distribuert versjonskontrollsystem for å spore endringer i kildekode under utvikling.",
+    icon: React.createElement(SiGit),
     category: "Øvrige Verktøy",
   },
 ];
