@@ -49,7 +49,7 @@ export const tools: Tool[] = [
     images: [
       {
         imageUrl: "/ChatGPT.png",
-        prompt: "ChatGPT 4o har vært hoved-AI-modellen i dette prosjektet. Jeg staret med å prompte modellen, der jeg ga den er rolle som Software Engineer med et ekspertområde på React + Vite og Typescript, før jeg aktivt har brukt modellen til å generere rundt 90% av koden i dette prosjektet. Jeg har også brukt andre GPT'er fra OpenAI som 'Ideogram' til å forbedre mine prompts for bildegenerering, og 'Suno AI V3 - Lyrics' til å generere forsalg til prompts for sangtekster.",
+        prompt: "ChatGPT 4o har vært hovedmodellen for kunstig intelligens for kodegenerering i dette prosjektet. Jeg startet med å sette opp modellen, hvor jeg ga den rollen som Software Engineer med ekspertise innen React, Vite og Typescript. Deretter har jeg brukt modellen aktivt til å generere omtrent 90% av koden i prosjektet. Min tilnærming for kodegenerering har vært å fortelle hva jeg ønsker å implementere, og lime inn all relevant kode i sin helhet der endringen skal skje. I tillegg har jeg benyttet andre GPT-modeller fra OpenAI, som 'Ideogram' for å forbedre mine bildegenereringsprompter, og 'Suno AI V3 - Lyrics' for å generere forslag til sangtekstprompter.",
         link: "https://chatgpt.com/c/67124328-8b2c-800c-bad9-4dc0e0c37bde"
       }
     ]
@@ -68,7 +68,7 @@ export const tools: Tool[] = [
         songUrl: "/song/0"
       },
       {
-        title: "Opprykk",
+        title: "Back to back",
         prompt: "For denne sangen har jeg brukt funksjonen 'Custom', der jeg har lagt inn egen promptet tekst, og musikkstil. Teksten er delvis selvskrevet, der Open AI's GPT 'Suno AI V3 - Lyrics' har produsert første utkast, og jeg har gjort endringer for å få teksten så god som mulig. Promptet kan leses ved å trykke på 'Gå til prompt og sang'.",
         style: "Party, EDM, Pop",
         songUrl: "/song/2"

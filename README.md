@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# Denne tekstfilen er autogenerert i Cursor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Marentius - KI-genererte Sanger og Verktøy
 
-Currently, two official plugins are available:
+## Om Prosjektet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Music er et spennende prosjekt som kombinerer kunstig intelligens med musikkproduksjon. Dette prosjektet bruker flere AI-verktøy for å generere sanger, bilder og kode. Hovedfokuset er å skape en interaktiv plattform hvor brukere kan utforske og lytte til KI-genererte sanger, samt lære om verktøyene som er brukt i prosessen.
 
-## Expanding the ESLint configuration
+### Funksjoner
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Musikkspiller**: Spill av KI-genererte sanger med en brukervennlig musikkspiller.
+- **Verktøyliste**: Utforsk ulike AI-verktøy som er brukt i prosjektet, inkludert detaljer om hver verktøy.
+- **Sangdetaljer**: Få informasjon om hver sang, inkludert tekst, stil og album.
 
-- Configure the top-level `parserOptions` property like this:
+## Teknologier Brukt
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: For å bygge brukergrensesnittet.
+- **TypeScript**: For å sikre type-sikkerhet i koden.
+- **Vite**: For rask utvikling og bygging av applikasjonen.
+- **Chakra UI**: For stil og layout av komponentene.
+- **React Router**: For navigering mellom forskjellige sider i applikasjonen.
+- **ChatGPT 4o**: Avansert AI språkmodell utviklet av OpenAI.
+- **Suno AI**: AI-plattform for å generere musikk og lydeffekter.
+- **DALL·E**: AI-modell utviklet av OpenAI for å generere bilder fra tekstbeskrivelser.
+- **Ideogram**: AI-verktøy for å generere kunst og bilder basert på tekstbeskrivelser (prompts).
+- **GitHub Copilot**: AI-verktøy for å generere kodeforslag og automatisere programmering.
+- **Cursor**: En kodeeditor som ligner på Visual Studio Code, men med innebygde AI-funksjoner.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installasjon
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+For å kjøre prosjektet lokalt, følg disse trinnene:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Klon prosjektet**:
+
+   ```bash
+   git clone https://github.com/Marentius/music.git
+   cd music
+   ```
+
+2. **Installer avhengigheter**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Start utviklingsserveren**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Åpne nettleseren** og naviger til `http://localhost:5173` for å se applikasjonen i aksjon.
+
+## Nedlastingsinformasjon
+
+Prosjektet er tilgjengelig for nedlasting via GitHub. Du kan klone det direkte fra [Marentius GitHub Repository](https://github.com/ditt-brukernavn/marentius).
